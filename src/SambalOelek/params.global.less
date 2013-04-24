@@ -4,18 +4,19 @@
 	@minLargeWidth: 768px;
 	@minMediumWidth: 500px;
 	
-	@primaryColor: #d94e4e;
-	@secondaryColor: #2795b6;
+	@primaryColor: #eba639;
+	@secondaryColor: #d94e4e;
 	@activeColor: lighten(@primaryColor,10%);
 	
-	@defaultRadiusBorder: 5px;
+	@defaultRadiusBorder: 2px;
 	
 /* Used to calculate the size width for grid.less */
 	@baseWidth: 100%;
 
 /* conditionnal params ---------------------------- */
 	@msie7: true;
-	@useNormalize: true;
+	@useNormalize: false;
+	@useReset: true;
 	@useResizeTransition: true;
 /* all about default style --------------------------- */
 	@useDefaultTableStyle: true;
@@ -113,22 +114,24 @@
 /* Navigation component parameters ----------------------------------- */
 	@menuBackground: #212121;
 	@menuBtnBackground: #313131;
-	@menuBtnColor: #efefef;
-	@menuBtnPadding: 0.3em 1.3em;
+	@menuBtnColor: #6e6e6e;
+	@menuBtnPadding: 0.2em 0.6em;
 	// we use this for hover
 	@menuBtnBackgroundHover: @primaryColor;
 	@menuBtnColorHover: #fff;
 	// we use this for the second level of the menu main
-	@menu2ndBackground: #444;
-	@menu2ndBtnBackgroundHover: #313131;
-	@menu2ndBtnColorHover: #efefef;
+	@menu2ndBackground: @menuBackground;
+	@menu2ndBtnBackgroundHover: @menuBtnBackgroundHover;
+	@menu2ndBtnBackground: @menuBtnBackground;
+	@menu2ndBtnColor: @menuBtnColor;
+	@menu2ndBtnColorHover: @menuBtnColorHover;
 /* End Navigation component parameters ----------------------------------- */
 	
 /* Button component parameters ----------------------------------- */
 	@buttonDefaultRadius: @defaultRadiusBorder;
 
 	@buttonBackground: @primaryColor;
-	@buttonPadding: 0px 15px;
+	@buttonPadding: 3px 15px;
 	@buttonColor: #fff;
 	@buttonBorder: 1px solid darken(@primaryColor, 10%);
 	@buttonFontSize: 1em;

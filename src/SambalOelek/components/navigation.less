@@ -33,6 +33,12 @@
 			padding: 0;
 			margin: 0;
 		}
+		&.current {
+			a, a:visited, & {
+				color: @menuBtnColorHover;
+				background: @menuBtnBackgroundHover;
+			}
+		}
 		&:hover, &:focus {
 			a, a:visited, & {
 				color: @menuBtnColorHover;
@@ -45,6 +51,8 @@
 					display: block;
 					width: 100%;
 					a, a:visited {
+						color: @menu2ndBtnColor;
+						background: @menu2ndBtnBackground;
 						&:hover, &:focus{
 							color: @menu2ndBtnColorHover;
 							background: @menu2ndBtnBackgroundHover;

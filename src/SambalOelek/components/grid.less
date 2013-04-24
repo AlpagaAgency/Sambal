@@ -3,7 +3,7 @@
 /* Size Method --------------------------------------- */
 // define the width of the block
 .setSize(@index;@gutter:0) when (@index =< @nbColumns) and (@index > 0) {
-	.columns;
+	.column();
 	padding: 0;
 	width: @min * @index - @gutter;
 }
@@ -52,7 +52,7 @@
 // create the block-grid system
 .block-grid (@index;@gutter:0) {
 	& > * {
-		.columns;
+		.column();
 		width: 100% / @index - @gutter;
 		margin-right: @gutter;
 	}
@@ -62,7 +62,7 @@
 .medium-block-grid (@index;@gutter:0) {
 	@media only screen and (max-width: @minLargeWidth) {
 		& > * {
-			.columns;
+			.column();
 			width: 100% / @index - @gutter;
 			margin-right: @gutter;
 		}
@@ -73,7 +73,7 @@
 .small-block-grid (@index;@gutter:0) {
 	@media only screen and (max-width: @minMediumWidth) {
 		& > * {
-			.columns;
+			.column();
 			width: 100% / @index - @gutter;
 			margin-right: @gutter;
 		}
@@ -149,12 +149,13 @@
 	}
 }
 // prepare column, no fucking float...
-.column, .columns {
+.column() {
 	.resizeTransition;
 	display: inline-block;
 	.fixIe7(display,inline-block);
 	min-height: 1px;
 	position: relative; 
+	vertical-align: top;
 }
 
 // htmlObject resize automatically
