@@ -40,6 +40,19 @@
 .offset (@index) when (@index < @nbColumns) {
 	margin-left: @min*@index;
 }
+
+.medium-offset (@index) when (@index < @nbColumns) {
+	@media only screen and (max-width: @minLargeWidth) {
+		margin-left: @min*@index;
+	}
+}
+
+.small-offset (@index) when (@index < @nbColumns) {
+	@media only screen and (max-width: @minMediumWidth) {
+		margin-left: @min*@index;
+	}
+}
+
 // move block to right
 .push (@index) when (@index < @nbColumns) {
 	left: @min*@index;
