@@ -10,7 +10,7 @@
 		color: @buttonColor;
 		border: @buttonBorder;
 		font-size: @buttonFontSize;
-		&:hover, &.current {
+		&:hover, &:focus, &.current {
 			background: @buttonBackgroundHover;
 			color: @buttonColorHover;
 			border: @buttonBorderHover;
@@ -30,7 +30,7 @@
 		background: @buttonBackgroundHover;
 		color: @buttonColorHover;
 		border: @buttonBorderHover;
-		&:hover, &.current {
+		&:hover, &:focus, &.current {
 			background: @buttonBackground;
 			color: @buttonColor;
 			border: @buttonBorder;
@@ -44,7 +44,7 @@
 		background: @buttonSecondaryBackground;
 		color: @buttonSecondaryColor;
 		border: @buttonSecondaryBorder;
-		&:hover, &.current {
+		&:hover, &:focus, &.current {
 			background: @buttonSecondaryBackgroundHover;
 			color: @buttonSecondaryColorHover;
 			border: @buttonSecondaryBorderHover;
@@ -58,7 +58,7 @@
 		background: @buttonErrorBackground;
 		color: @buttonErrorColor;
 		border: @buttonErrorBorder;
-		&:hover, &.current {
+		&:hover, &:focus, &.current {
 			background: @buttonErrorBackgroundHover;
 			color: @buttonErrorColorHover;
 			border: @buttonErrorBorderHover;
@@ -129,14 +129,14 @@
 				color: @dropdownBtnColor;
 				font-size: 0.8em;
 				text-decoration: none;
-				&:hover {
+				&:hover, &:focus {
 					color: @dropdownBtnColorHover;
 					background: @dropdownBtnBackgroundHover;
 				}
 			}
 		}
 	}
-	&:hover, &.active {
+	&:hover, &.active, &:focus {
 		span {
 			.border-radius(@buttonDefaultRadius @buttonDefaultRadius 0 0);
 			background: @buttonBackgroundHover;
