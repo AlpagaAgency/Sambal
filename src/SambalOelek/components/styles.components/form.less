@@ -1,4 +1,5 @@
-.formStyle (@inputBackground: @formInputBackground;@inputBorderColor: @formInputBorderColor;@inputTextColor: @formInputTextColor;@inputBackgroundFocus: @formInputBackgroundFocus;@inputBorderColorFocus: @formInputBorderColorFocus;@inputTextColorFocus: @formInputTextColorFocus;@inputBackgroundDisabled: @formInputBackgroundDisabled;@inputBorderColorDisabled: @formInputBorderColorDisabled;@inputTextColorDisabled: @formInputTextColorDisabled;) {
+.formStyle (@inputBackground: @formInputBackground;@inputBorderColor: @formInputBorderColor;@inputTextColor: @formInputTextColor;@inputBackgroundFocus: @formInputBackgroundFocus;@inputBorderColorFocus: @formInputBorderColorFocus;@inputTextColorFocus: @formInputTextColorFocus;@inputBackgroundDisabled: @formInputBackgroundDisabled;@inputBorderColorDisabled: @formInputBorderColorDisabled;@inputTextColorDisabled: @formInputTextColorDisabled;@font-size:@formFontSize;) {
+	select,
 	input[type="text"],
 	input[type="password"],
 	input[type="date"],
@@ -20,7 +21,7 @@
 		box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 		color: @inputTextColor;
 		display: block;
-		font-size: 0.875em;
+		font-size: @font-size;
 		margin: 0;
 		padding: 0.3em;
 		width: 100%;
@@ -35,6 +36,12 @@
 			border-color: @inputBorderColorDisabled;
 			color: @inputTextColorDisabled;
 		}
+	}
+	
+	select option:hover {
+		background: @inputBackgroundFocus;
+		color: @inputTextColorFocus;
+		outline: none; 
 	}
 	
 	fieldset {
