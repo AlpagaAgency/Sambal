@@ -8,60 +8,153 @@
 	width: @min * @index - @gutter;
 }
 
-// set the size with gutter when gutter is a number
-.size (@index;@gutter:0) when (isnumber(@gutter)) {
-	.setSize(@index,@gutter);
-	margin-right: @gutter;
-}
-// set the size and center it
-.size (@index;@gutter:0) when (@gutter = "center") {
-	.setSize(@index,0);
-	margin-left: (@baseWidth - @min*@index) /2;
-}
-// set the size and center it
-.size (@index;@gutter:0) when (@gutter = "right") {
-	.setSize(@index,0);
-	margin-left: (@baseWidth - @min*@index);
+	// set the size with gutter when gutter is a number
+	.size (@index;@gutter:0) when (isnumber(@gutter)) {
+		.setSize(@index,@gutter);
+		margin-right: @gutter;
+	}
+	// set the size and center it
+	.size (@index;@gutter:0) when (@gutter = "center") {
+		.setSize(@index,0);
+		margin-left: (@baseWidth - @min*@index) /2;
+	}
+	// set the size and center it
+	.size (@index;@gutter:0) when (@gutter = "right") {
+		.setSize(@index,0);
+		margin-left: (@baseWidth - @min*@index);
+	}
+
+	.medium-size (@index;@gutter:0) when (isnumber(@gutter)) {
+		@media only screen and (max-width: @minLargeWidth) {
+			.size(@index,@gutter);
+		}
+	}
+	// small-size
+	.small-size (@index;@gutter:0) when (isnumber(@gutter)) {
+		@media only screen and (max-width: @minMediumWidth) {
+			.size(@index,@gutter);
+		}
+	}
+
+/* *********************************************************** */
+// Block displaying
+
+.hide() {
+	display: none;
+	.opacity(0,0);
 }
 
-.medium-size (@index;@gutter:0) when (isnumber(@gutter)) {
-	@media only screen and (max-width: @minLargeWidth) {
-		.size(@index,@gutter);
+	.medium-hide() {
+		@media only screen and (max-width: @minLargeWidth) {
+			.hide();
+		}
 	}
-}
-// small-size
-.small-size (@index;@gutter:0) when (isnumber(@gutter)) {
-	@media only screen and (max-width: @minMediumWidth) {
-		.size(@index,@gutter);
+
+	.small-hide() {
+		@media only screen and (max-width: @minMediumWidth) {
+			.hide();
+		}
 	}
+
+// show
+.show(@type:"block") when (@type = "block") {
+	display: block;
+	.opacity(1,100);
+} 
+
+.show(@type) when (@type = "inline-block") {
+	display: inline-block;
+	.fixIe7(display,inline-block);
+	.opacity(1,100);
 }
 
-// set the margin left of the block
+	.medium-show(@type:"block") {
+		@media only screen and (max-width: @minLargeWidth) {
+			.show(@type);
+		}
+	}
+
+	.small-show(@type:"block") {
+		@media only screen and (max-width: @minMediumWidth) {
+			.show(@type);
+		}
+	}
+
+/* *********************************************************** */
+// set the block's margins
 .offset (@index) when (@index < @nbColumns) {
 	margin-left: @min*@index;
 }
 
-.medium-offset (@index) when (@index < @nbColumns) {
-	@media only screen and (max-width: @minLargeWidth) {
-		margin-left: @min*@index;
+	.medium-offset (@index) {
+		@media only screen and (max-width: @minLargeWidth) {
+			.offset(@index);
+		}
 	}
+
+	.small-offset (@index) {
+		@media only screen and (max-width: @minMediumWidth) {
+			.offset(@index);
+		}
+	}
+	
+.vOffset(@value;@type:"top") {
+	margin-top: @value
 }
 
-.small-offset (@index) when (@index < @nbColumns) {
-	@media only screen and (max-width: @minMediumWidth) {
-		margin-left: @min*@index;
-	}
+.vOffset(@value;@type) when (@type = "bottom") {
+	margin-bottom: @value;
 }
 
+	.medium-vOffset(@value;@type:"top") {
+		@media only screen and (max-width: @minLargeWidth) {
+			.vOffset(@value;@type);
+		}
+	}
+	
+	.small-vOffset(@value;@type:"top") {
+		@media only screen and (max-width: @minMediumWidth) {
+			.vOffset(@value;@type);
+		}
+	}
+
+/* *********************************************************** */
 // move block to right
 .push (@index) when (@index < @nbColumns) {
 	left: @min*@index;
 }
+
+	.medium-push (@index) {
+		@media only screen and (max-width: @minLargeWidth) {
+			.push(@index);
+		}
+	}
+
+	.small-push (@index) {
+		@media only screen and (max-width: @minMediumWidth) {
+			.push(@index);
+		}
+	}
+	
+/* *********************************************************** */
 // move block to left
 .pull (@index) when (@index < @nbColumns) {
 	right: @min*@index;
 }
 
+	.medium-pull (@index) {
+		@media only screen and (max-width: @minLargeWidth) {
+			.pull(@index);
+		}
+	}
+
+	.small-pull (@index) {
+		@media only screen and (max-width: @minMediumWidth) {
+			.pull(@index);
+		}
+	}
+
+/* *********************************************************** */
 // create the block-grid system
 .block-grid (@index;@gutter:0) {
 	& > * {
@@ -71,40 +164,33 @@
 	}
 }
 
-// create the small block-grid system
-.medium-block-grid (@index;@gutter:0) {
-	@media only screen and (max-width: @minLargeWidth) {
-		& > * {
-			.column();
-			width: 100% / @index - @gutter;
-			margin-right: @gutter;
+	// create the small block-grid system
+	.medium-block-grid (@index;@gutter:0) {
+		@media only screen and (max-width: @minLargeWidth) {
+			& > * {
+				.column();
+				width: 100% / @index - @gutter;
+				margin-right: @gutter;
+			}
 		}
 	}
-}
 
-// create the small block-grid system
-.small-block-grid (@index;@gutter:0) {
-	@media only screen and (max-width: @minMediumWidth) {
-		& > * {
-			.column();
-			width: 100% / @index - @gutter;
-			margin-right: @gutter;
+	// create the small block-grid system
+	.small-block-grid (@index;@gutter:0) {
+		@media only screen and (max-width: @minMediumWidth) {
+			& > * {
+				.column();
+				width: 100% / @index - @gutter;
+				margin-right: @gutter;
+			}
 		}
 	}
-}
 
-
-.parent () {
-	.row;
-	@media only screen and (max-width: @minLargeWidth) {
-		.resetRow;
-	}
-	
-}
-
+/* *********************************************************** */
 // set the resize transition
 .resizeTransition () when (@useResizeTransition = true) {
 	-webkit-transition: 0.2s all ease-out;
+	-webkit-backface-visibility: hidden;
 	-moz-transition: 0.2s all ease-out;
 	transition: 0.2s all ease-out;
 }
@@ -131,6 +217,14 @@
 /* Global Reset & Standards ---------------------- */
 *, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 /* Grid ----------------------------------------------- */
+.parent () {
+	.row;
+	@media only screen and (max-width: @minLargeWidth) {
+		.resetRow;
+	}
+	
+}
+
 .row {
 	width: @mainWidth;
 	min-width: @minLargeWidth;
@@ -146,6 +240,7 @@
 		.resetRow;
 	}
 }
+
 @media only screen and (max-width: @minLargeWidth) {
 	body { 
 		-webkit-text-size-adjust: none;
@@ -161,6 +256,7 @@
 		width: auto; min-width: 0; margin-left: 0; margin-right: 0;
 	}
 }
+
 // prepare column, no fucking float...
 .column() {
 	.resizeTransition;

@@ -1,4 +1,4 @@
-.formStyle (@inputBackground: @formInputBackground;@inputBorderColor: @formInputBorderColor;@inputTextColor: @formInputTextColor;@inputBackgroundFocus: @formInputBackgroundFocus;@inputBorderColorFocus: @formInputBorderColorFocus;@inputTextColorFocus: @formInputTextColorFocus;@inputBackgroundDisabled: @formInputBackgroundDisabled;@inputBorderColorDisabled: @formInputBorderColorDisabled;@inputTextColorDisabled: @formInputTextColorDisabled;@font-size:@formFontSize;) {
+.formStyle (@inputBackground: @formInputBackground;@inputBorderColor: @formInputBorderColor;@inputTextColor: @formInputTextColor;@inputBackgroundFocus: @formInputBackgroundFocus;@inputBorderColorFocus: @formInputBorderColorFocus;@inputTextColorFocus: @formInputTextColorFocus;@inputBackgroundDisabled: @formInputBackgroundDisabled;@inputBorderColorDisabled: @formInputBorderColorDisabled;@inputTextColorDisabled: @formInputTextColorDisabled;@font-size:@formFontSize; @invalidBackground: @formInvalidBackground; @invalidBorder: @formInvalidBorder;@invalidTextColor: @formInvalidTextColor; @invalidBackgroundFocus: @formInvalidBackgroundFocus;@invalidBorderFocus: @formInvalidBorderFocus;@invalidTextColorFocus: @formInvalidTextColorFocus;) {
 	select,
 	input[type="text"],
 	input[type="password"],
@@ -35,6 +35,16 @@
 			background: @inputBackgroundDisabled;
 			border-color: @inputBorderColorDisabled;
 			color: @inputTextColorDisabled;
+		}
+		&.invalid,&[invalid="invalid"] {
+			background: @invalidBackground;
+			border-color: @invalidBorder;
+			color: @invalidTextColor;
+			&:focus {
+				background: @invalidBackgroundFocus;
+				border-color: @invalidBorderFocus;
+				color: @invalidTextColorFocus;
+			}
 		}
 	}
 	

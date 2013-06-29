@@ -4,17 +4,17 @@
 	@minLargeWidth: 768px;
 	@minMediumWidth: 500px;
 	
-	@primaryColor: #eba639;
+	@primaryColor: #f33e6f;
 	@secondaryColor: #d94e4e;
 	@activeColor: lighten(@primaryColor,10%);
 	
-	@defaultRadiusBorder: 2px;
+	@defaultRadiusBorder: 8px;
 	
 /* Used to calculate the size width for grid.less */
 	@baseWidth: 100%;
 
 /* conditionnal params ---------------------------- */
-	@msie7: true;
+	@msie7: false;
 	@useNormalize: false;
 	@useReset: true;
 	@useResizeTransition: true;
@@ -58,6 +58,14 @@
 	@formInputBackgroundDisabled: #ddd;
 	@formInputBorderColorDisabled: #ccc;
 	@formInputTextColorDisabled: rgba(0, 0, 0, 0.75);
+	
+	@formFontSize: 0.875em;
+	@formInvalidBackground:@messagingBackgroundError;
+	@formInvalidBorder: @messagingBorderError;
+	@formInvalidTextColor: @messagingColorError;
+	@formInvalidBackgroundFocus:@formInvalidBackground;
+	@formInvalidBorderFocus:@formInvalidBorder;
+	@formInvalidTextColorFocus:@formInvalidTextColor;
 /* EndForm parameters --------------------------------------------------- */
 
 /* Tag Style component parameters ------------------------------------- */
@@ -112,13 +120,13 @@
 /* End Breadcrumbs component parameters -------------------------------- */
 
 /* Navigation component parameters ----------------------------------- */
-	@menuBackground: #212121;
-	@menuBtnBackground: #313131;
-	@menuBtnColor: #6e6e6e;
+	@menuBackground: transparent;
+	@menuBtnBackground: transparent;
+	@menuBtnColor: #84858a;
 	@menuBtnPadding: 0.2em 0.6em;
 	// we use this for hover
-	@menuBtnBackgroundHover: @primaryColor;
-	@menuBtnColorHover: #fff;
+	@menuBtnBackgroundHover: transparent;
+	@menuBtnColorHover: #222;
 	// we use this for the second level of the menu main
 	@menu2ndBackground: @menuBackground;
 	@menu2ndBtnBackgroundHover: @menuBtnBackgroundHover;
@@ -133,11 +141,11 @@
 	@buttonBackground: @primaryColor;
 	@buttonPadding: 3px 15px;
 	@buttonColor: #fff;
-	@buttonBorder: 1px solid darken(@primaryColor, 10%);
+	@buttonBorder: none;
 	@buttonFontSize: 1em;
 	@buttonBackgroundHover: #313131;
 	@buttonColorHover: #efefef;
-	@buttonBorderHover: 1px solid darken(#313131,10%);
+	@buttonBorderHover: none;
 
 	@buttonSecondaryBackground: #f5f5f5;
 	@buttonSecondaryColor: #313131;
