@@ -36,6 +36,106 @@
 		}
 	}
 
+.all-size (@full:12;@medium:12;@small:12;@gutter:0;@mgutter:0;@sgutter:0) {
+	.size(@full;@gutter);
+	.medium-size(@medium;@mgutter);
+	.small-size(@small;@sgutter);
+}
+	
+/* *********************************************************** */
+// text-align 
+.text-align(@type) {
+	text-align: @type;
+}
+
+	.medium-text-align(@type) {
+		@media only screen and (max-width: @minLargeWidth) {
+			.text-align(@type);
+		}
+	}
+
+	.small-text-align(@type) {
+		@media only screen and (max-width: @minMediumWidth) {
+			.text-align(@type);
+		}
+	}
+
+.all-text-align (@full:"left";@medium:"left";@small:"small") {
+	.text-align(@full);
+	.medium-text-align(@medium);
+	.small-text-align(@small);
+}
+	
+// height
+.height(@value) {
+	height: @value;
+}
+
+	.medium-height(@value) {
+		@media only screen and (max-width: @minLargeWidth) {
+			.height(@value);
+		}
+	}
+
+	.small-height(@value) {
+		@media only screen and (max-width: @minMediumWidth) {
+			.height(@value);
+		}
+	}
+	
+.all-height(@full;@medium;@small) {
+	.height(@full);
+	.medium-height(@medium);
+	.small-height(@small);
+}
+
+// min-height
+.min-height(@value) {
+	min-height: @value;
+}
+
+	.medium-min-height(@value) {
+		@media only screen and (max-width: @minLargeWidth) {
+			.min-height(@value);
+		}
+	}
+
+	.small-min-height(@value) {
+		@media only screen and (max-width: @minMediumWidth) {
+			.min-height(@value);
+		}
+	}
+
+	
+.all-min-height(@full;@medium;@small) {
+	.min-height(@full);
+	.medium-min-height(@medium);
+	.small-min-height(@small);
+}
+	
+// min-height
+.max-height(@value) {
+	max-height: @value;
+}
+
+	.medium-max-height(@value) {
+		@media only screen and (max-width: @minLargeWidth) {
+			.max-height(@value);
+		}
+	}
+
+	.small-max-height(@value) {
+		@media only screen and (max-width: @minMediumWidth) {
+			.max-height(@value);
+		}
+	}
+	
+.all-max-height(@full;@medium;@small) {
+	.max-height(@full);
+	.medium-max-height(@medium);
+	.small-max-height(@small);
+}
+	
 /* *********************************************************** */
 // Block displaying
 
@@ -98,11 +198,24 @@
 		}
 	}
 	
-.vOffset(@value;@type:"top") {
+.all-offset(@full:0;@medium:0;@small:0) {
+	.offset(@full);
+	.medium-offset(@medium);
+	.small-offset(@small);
+}
+
+.vOffset(@value;@type:"top") when (@type = "top") and (isnumber(@value)) and (@value < @nbColumns) {
+	margin-top: @min*value;
+}
+.vOffset(@value;@type:"top") when (@type = "top") and (ispercentage(@value)) {
 	margin-top: @value
 }
 
-.vOffset(@value;@type) when (@type = "bottom") {
+.vOffset(@value;) when (@type = "bottom") and (isnumber(@value)) and (@value < @nbColumns) {
+	margin-bottom: @min*value;
+}
+
+.vOffset(@value;@type) when (@type = "bottom") and (ispercentage(@value)) {
 	margin-bottom: @value;
 }
 
@@ -117,6 +230,12 @@
 			.vOffset(@value;@type);
 		}
 	}
+	
+.all-vOffset (@full;@medium;@small;@tFull:"top";@tMedium:"top";@tSmall:"top") {
+	.vOffset(@full;@tFull);
+	.medium-vOffset(@medium;@tMedium);
+	.small-vOffset(@small;@tSmall);
+}
 
 /* *********************************************************** */
 // move block to right
@@ -136,6 +255,12 @@
 		}
 	}
 	
+.all-push(@full;@medium:0;@small:0) {
+	.push(@full);
+	.medium-push(@medium);
+	.small-push(@small);
+}
+	
 /* *********************************************************** */
 // move block to left
 .pull (@index) when (@index < @nbColumns) {
@@ -153,6 +278,12 @@
 			.pull(@index);
 		}
 	}
+	
+.all-pull(@full;@medium:0;@small:0) {
+	.pull(@full);
+	.medium-pull(@medium);
+	.small-pull(@small);
+}
 
 /* *********************************************************** */
 // create the block-grid system
@@ -186,6 +317,12 @@
 		}
 	}
 
+.all-block-grid (@full;@medium;@small;@gFull:0;@gMedium:0;@gSmall:0;) {
+	.block-grid(@full;@gFull);
+	.medium-block-grid(@medium;@gMedium);
+	.small-block-grid(@small;@gSmall);
+}
+	
 /* *********************************************************** */
 // set the resize transition
 .resizeTransition () when (@useResizeTransition = true) {
