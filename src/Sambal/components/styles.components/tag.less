@@ -1,9 +1,25 @@
 .tagStyle () {
-	a:focus, select:focus, option:focus { outline: none; }
+	a:focus, select:focus, option:focus, input[type="submit"]:focus, input[type="button"]:focus  { outline: none; }
 	button::-moz-focus-inner { border: 0; } 
+	::-moz-selection {
+		background: @primaryColor;
+		color: @secondaryColor;
+		text-shadow: none;
+	}
+
+	::selection {
+		background: @primaryColor;
+		color: @secondaryColor;
+		text-shadow: none;
+	}
+	a:focus,
+	input[type="submit"]::-moz-focus-inner,
+	input[type="button"]::-moz-focus-inner {
+		border: 0px;
+	}
 	/* Default Link Styles */
 	a {
-		&, &:visted {
+		&, &:visited {
 			color: @tagLinkColor;
 			text-decoration: @tagLinkDecoration;
 			line-height: inherit; 

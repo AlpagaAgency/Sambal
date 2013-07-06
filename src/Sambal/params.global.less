@@ -4,11 +4,20 @@
 	@minLargeWidth: 768px;
 	@minMediumWidth: 500px;
 	
-	@primaryColor: #f33e6f;
-	@secondaryColor: #d94e4e;
+	@primaryColor: #cecece;;
+	@secondaryColor: #212121;
 	@activeColor: lighten(@primaryColor,10%);
 	
-	@defaultRadiusBorder: 8px;
+	@defaultRadiusBorder: 2px;
+	
+	@screen-mobile-portrait:  ~"screen and (max-device-width: 480px) and (orientation: portrait)";
+	@screen-mobile-landscape: ~"screen and (max-device-width: 640px) and (orientation: landscape)";
+	@screen-mobile:           ~"screen and (max-device-width: 640px)";
+	@screen-tablet:           ~"screen and (min-device-width: 768px) and (max-device-width: 1024px)";
+	@screen-desktop-small:    ~"screen and (min-width: 1024px) and (max-width: 1440px)";
+	@screen-desktop-medium:   ~"screen and (min-width: 1441px) and (max-width: 1920px)";
+	@screen-desktop-large:    ~"screen and (min-width: 1921px)";
+	@screen-desktop:          ~"screen and (min-width: 1024px)";
 	
 /* Used to calculate the size width for grid.less */
 	@baseWidth: 100%;
@@ -17,12 +26,12 @@
 	@msie7: false;
 	@useNormalize: false;
 	@useReset: true;
-	@useResizeTransition: true;
+	@useResizeTransition: false;
 /* all about default style --------------------------- */
-	@useDefaultTableStyle: true;
+	@useDefaultTableStyle: false;
 	@useDefaultFormStyle: true;
 	@useDefaultTagStyle: true;
-	@useDefaultBreadcrumStyle: true;
+	@useDefaultBreadcrumStyle: false;
 	@useDefaultNavigationStyle: true;
 	@useDefaultButtonStyle: true;
 
@@ -77,7 +86,7 @@
 	@tagParagraphFontSize: 1em;
 	@tagParagraphMarginBottom: 1.25em;
 
-	@tagHeaderFontFamily: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	@tagHeaderFontFamily: "Helvetica", Helvetica, Arial, sans-serif;
 	@tagHeaderFontWeight: bold;
 	@tagHeaderColor: #222;
 /* End Tag Style component parameters -------------------------------- */
@@ -140,19 +149,19 @@
 
 	@buttonBackground: @primaryColor;
 	@buttonPadding: 3px 15px;
-	@buttonColor: #fff;
+	@buttonColor: @secondaryColor;
 	@buttonBorder: none;
 	@buttonFontSize: 1em;
-	@buttonBackgroundHover: #313131;
-	@buttonColorHover: #efefef;
+	@buttonBackgroundHover: lighten(@primaryColor,10%);
+	@buttonColorHover: lighten(@secondaryColor,10%);
 	@buttonBorderHover: none;
 
-	@buttonSecondaryBackground: #f5f5f5;
-	@buttonSecondaryColor: #313131;
+	@buttonSecondaryBackground: spin(@primaryColor,0);
+	@buttonSecondaryColor: spin(@secondaryColor,0);
 	@buttonSecondaryBorder: 1px solid #dedede;
-	@buttonSecondaryBackgroundHover: #313131;
-	@buttonSecondaryColorHover: #efefef;
-	@buttonSecondaryBorderHover: 1px solid darken(#313131,10%);
+	@buttonSecondaryBackgroundHover: spin(lighten(@primaryColor,20%),0);
+	@buttonSecondaryColorHover: spin(lighten(@secondaryColor,20%),0);
+	@buttonSecondaryBorderHover: none;
 
 	@buttonErrorBackground: lighten(rgba(250,20,20,0.4),10%);
 	@buttonErrorColor: lighten(rgba(184,4,4,0.7),10%);

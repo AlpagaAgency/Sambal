@@ -5,7 +5,6 @@
 		.fixIe7(display,inline-block);
 		padding: @buttonPadding;
 		text-decoration: none;
-		margin: 0;
 		background: @buttonBackground;
 		color: @buttonColor;
 		border: @buttonBorder;
@@ -20,7 +19,7 @@
 
 .button(@type:"classic") {
 	.buttonBase();
-	margin: 0 0.4em 0 0;
+	margin-right: 0.4em;
 	.border-radius(@buttonDefaultRadius);
 }
 
@@ -30,7 +29,7 @@
 		background: @buttonBackgroundHover;
 		color: @buttonColorHover;
 		border: @buttonBorderHover;
-		&:hover, &:focus, &.current {
+		&:hover, &.current {
 			background: @buttonBackground;
 			color: @buttonColor;
 			border: @buttonBorder;
@@ -44,7 +43,7 @@
 		background: @buttonSecondaryBackground;
 		color: @buttonSecondaryColor;
 		border: @buttonSecondaryBorder;
-		&:hover, &:focus, &.current {
+		&:hover, &.current {
 			background: @buttonSecondaryBackgroundHover;
 			color: @buttonSecondaryColorHover;
 			border: @buttonSecondaryBorderHover;
@@ -58,7 +57,7 @@
 		background: @buttonErrorBackground;
 		color: @buttonErrorColor;
 		border: @buttonErrorBorder;
-		&:hover, &:focus, &.current {
+		&:hover, &.current {
 			background: @buttonErrorBackgroundHover;
 			color: @buttonErrorColorHover;
 			border: @buttonErrorBorderHover;
@@ -129,14 +128,14 @@
 				color: @dropdownBtnColor;
 				font-size: 0.8em;
 				text-decoration: none;
-				&:hover, &:focus {
+				&:hover {
 					color: @dropdownBtnColorHover;
 					background: @dropdownBtnBackgroundHover;
 				}
 			}
 		}
 	}
-	&:hover, &.active, &:focus {
+	&:hover, &.active {
 		span {
 			.border-radius(@buttonDefaultRadius @buttonDefaultRadius 0 0);
 			background: @buttonBackgroundHover;
@@ -198,7 +197,7 @@
 
 // set default Button Style
 .defaultButtonStyle(@arg) when (@arg = true) {
-	button, input[type=submit], input[type=button], input[type=reset], input[type=file] {
+	button, input[type=submit], input[type=button], input[type=reset] {
 		.button();
 	}
 	.button-bar {
