@@ -1,4 +1,4 @@
-Sambal Oelek
-==========
+Sambal
+======
 
 Explainations and documentations are coming!
