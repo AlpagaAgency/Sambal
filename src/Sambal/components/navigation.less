@@ -37,16 +37,18 @@
 			color: @menuBtnColor;
 			width: 100%;
 			&:hover, &:focus{
-				color: #fff;
-				background: @primaryColor;
+				color: @menuBtnColorHover;
+				background: @menuBtnBackgroundHover;
 			}
 			&.active {
 				&, &:hover, &:focus {
-					color: @activeColor;
+					color: @menuBtnColorCurrent;
+					color: @menuBtnBackgroundCurrent;
 				}
 			}
 		}
 		> ul {
+			.transition;
 			display: none;
 			position: absolute;
 			z-index: 1000;
@@ -70,6 +72,7 @@
 				 > li {
 					display: block;
 					width: 100%;
+					background: @menu2ndBackground;
 					a, a:visited {
 						color: @menu2ndBtnColor;
 						background: @menu2ndBtnBackground;
@@ -81,27 +84,14 @@
 				}
 			}
 		}
-		
-		@media only screen and (max-width: @minLargeWidth) {
-			width: 50%;
-			margin-right: 0;
-			text-indent: 1em;
-			a, a:visited {
-				padding: 0;
-				width: 100%;
-			}
-			> ul {
-				width: 50%;
-				text-indent: 1.8em;
-			}
-		}
-		
+	
 		@media only screen and (max-width: @minMediumWidth) {
 			width: 100%;
 			margin-right: 0;
 			border: none;
 			text-indent: 0.5em;
 			> ul {
+				display: block;
 				width: 100%;
 				position: relative;
 				text-indent: 1em;

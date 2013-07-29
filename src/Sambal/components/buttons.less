@@ -99,6 +99,7 @@
 	span {
 		.button();
 		cursor: pointer;
+		margin: 0;
 	}
 	span:after {
 		display: inline-block;
@@ -218,12 +219,6 @@
 .defaultButtonStyle(@arg) when (@arg = true) {
 	button, input[type=submit], input[type=button], input[type=reset] {
 		.button();
-	}
-	.button-bar {
-		.buttonBar();
-	}
-	.button-group {
-		.buttonGroup();
 	}
 }
 // active or not the default style

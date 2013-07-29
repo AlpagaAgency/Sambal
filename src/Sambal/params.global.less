@@ -23,11 +23,11 @@
 	@minLargeWidth: 768px;
 	@minMediumWidth: 500px;
 	
-	@primaryColor: #cecece;;
+	@primaryColor: #46bfbd;
 	@secondaryColor: #212121;
 	@activeColor: lighten(@primaryColor,10%);
 	
-	@defaultRadiusBorder: 2px;
+	@defaultRadiusBorder: 0px;
 	
 	@screen-mobile-portrait:  ~"screen and (max-device-width: 480px) and (orientation: portrait)";
 	@screen-mobile-landscape: ~"screen and (max-device-width: 640px) and (orientation: landscape)";
@@ -45,12 +45,12 @@
 	@msie7: false;
 	@useNormalize: false;
 	@useReset: true;
-	@useResizeTransition: false;
+	@useResizeTransition: true;
 /* all about default style --------------------------- */
-	@useDefaultTableStyle: false;
+	@useDefaultTableStyle: true;
 	@useDefaultFormStyle: true;
 	@useDefaultTagStyle: true;
-	@useDefaultBreadcrumStyle: false;
+	@useDefaultBreadcrumStyle: true;
 	@useDefaultNavigationStyle: true;
 	@useDefaultButtonStyle: true;
 
@@ -155,10 +155,13 @@
 	// we use this for hover
 	@menuBtnBackgroundHover: transparent;
 	@menuBtnColorHover: #222;
+	// we use this for current
+	@menuBtnColorCurrent: @activeColor;
+	@menuBtnBackgroundCurrent: @menuBtnBackground;
 	// we use this for the second level of the menu main
-	@menu2ndBackground: @menuBackground;
-	@menu2ndBtnBackgroundHover: @menuBtnBackgroundHover;
-	@menu2ndBtnBackground: @menuBtnBackground;
+	@menu2ndBackground: transparent;
+	@menu2ndBtnBackgroundHover: transparent;
+	@menu2ndBtnBackground: transparent;
 	@menu2ndBtnColor: @menuBtnColor;
 	@menu2ndBtnColorHover: @menuBtnColorHover;
 /* End Navigation component parameters ----------------------------------- */
@@ -171,8 +174,8 @@
 	@buttonColor: @secondaryColor;
 	@buttonBorder: none;
 	@buttonFontSize: 1em;
-	@buttonBackgroundHover: lighten(@primaryColor,10%);
-	@buttonColorHover: lighten(@secondaryColor,10%);
+	@buttonBackgroundHover: @secondaryColor;
+	@buttonColorHover: @primaryColor;
 	@buttonBorderHover: none;
 
 	@buttonSecondaryBackground: spin(@primaryColor,0);
