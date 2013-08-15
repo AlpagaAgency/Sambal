@@ -84,6 +84,28 @@
 	.medium-text-align(@medium);
 	.small-text-align(@small);
 }
+
+.font-size(@value) {
+	font-size: @value;
+}
+
+	.medium-font-size(@value) {
+		@media only screen and (max-width: @minLargeWidth) {
+			.font-size(@value);
+		}
+	}
+
+	.small-font-size(@value) {
+		@media only screen and (max-width: @minMediumWidth) {
+			.font-size(@value);
+		}
+	}
+
+.all-text-align (@full:"1em";@medium:"1em";@small:"1em") {
+	.font-size(@full);
+	.medium-font-size(@medium);
+	.small-font-size(@small);
+}
 	
 // height
 .height(@value) {
