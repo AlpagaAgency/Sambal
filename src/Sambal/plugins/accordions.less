@@ -1,0 +1,117 @@
+.accordionStyle(
+	// tab header Styles
+	@tabHeaderTextAlign:@accordionTabHeaderTextAlign,
+	@tabHeaderFontWeight:@accordionTabHeaderFontWeight,
+	@tabHeaderPadding: @accordionTabHeaderPadding,
+	@tabHeaderMargin: @accordionTabHeaderMargin,
+	@tabHeaderBg:@accordionTabHeaderBackground,
+	@tabHeaderBgHover:@accordionTabHeaderBackgroundHover,
+	@tabHeaderBgCurrent:@accordionTabHeaderBackgroundCurrent,
+	@tabHeaderTextColor:@accordionTabHeaderTextColor,
+	@tabHeaderFontSize:@accordionTabHeaderFontSize,
+	@tabHeaderLineHeight:@accordionTabHeaderLineHeight,
+	@tabHeaderTextColorHover:@accordionTabHeaderTextColorHover,
+	@tabHeaderLineHeightHover:@accordionTabHeaderLineHeightHover,
+	@tabHeaderFontSizeHover:@accordionTabHeaderFontSizeHover,
+	@tabHeaderTextColorCurrent:@accordionTabHeaderTextColorCurrent,
+	@tabHeaderLineHeightCurrent:@accordionTabHeaderLineHeightCurrent,
+	@tabHeaderFontSizeCurrent:@accordionTabHeaderFontSizeCurrent,
+	// Tab header Before styles
+	@tabHeaderBeforeTextAlign:@accordionTabHeaderBeforeTextAlign,
+	@tabHeaderBeforeMargin:@accordionTabHeaderBeforeMargin,
+	@tabHeaderBeforeHeight:@accordionTabHeaderBeforeHeight,
+	@tabHeaderBeforeWidth:@accordionTabHeaderBeforeWidth,
+	@tabHeaderBeforeTop: @accordionTabHeaderBeforeTop,
+	@tabHeaderBeforeContent: @accordionTabHeaderBeforeContent,
+	@tabHeaderBeforeContentHover: @accordionTabHeaderBeforeContentHover,
+	@tabHeaderBeforeContentCurrent: @accordionTabHeaderBeforeContentCurrent,
+	@tabHeaderBeforeBg:@accordionTabHeaderBeforeBackground,
+	@tabHeaderBeforeBgHover:@accordionTabHeaderBeforeBackgroundHover,
+	@tabHeaderBeforeBgCurrent:@accordionTabHeaderBeforeBackgroundCurrent,
+	@tabHeaderBeforeTextColor:@accordionTabHeaderBeforeTextColor,
+	@tabHeaderBeforeFontSize:@accordionTabHeaderBeforeFontSize,
+	@tabHeaderBeforeLineHeight:@accordionTabHeaderBeforeLineHeight,
+	@tabHeaderBeforeTextColorHover:@accordionTabHeaderBeforeTextColorHover,
+	@tabHeaderBeforeLineHeightHover:@accordionTabHeaderBeforeLineHeightHover,
+	@tabHeaderBeforeFontSizeHover:@accordionTabHeaderBeforeFontSizeHover,
+	@tabHeaderBeforeTextColorCurrent:@accordionTabHeaderBeforeTextColorCurrent,
+	@tabHeaderBeforeLineHeightCurrent:@accordionTabHeaderBeforeLineHeightCurrent,
+	@tabHeaderBeforeFontSizeCurrent:@accordionTabHeaderBeforeFontSizeCurrent,
+	// Tab content styles
+	@tabContentFontWeight:@accordionTabContentFontWeight,
+	@tabContentBg: @accordionTabContentBackground,
+	@tabContentTextColor: @accordionTabContentTextColor,
+	@tabContentFontSize: @accordionTabContentFontSize,
+	@tabContentLineHeight: @accordionTabContentLineHeight,
+	@tabContentPadding: @accordionTabContentPadding,
+	@tabContentMargin: @accordionTabContentMargin,
+) {
+	> * {
+		display: none;
+	}
+	.tab-header {
+		display: block;
+		cursor: pointer;
+		padding: @tabHeaderPadding;
+		margin: @tabHeaderMargin;
+		background: @tabHeaderBg;
+		color: @tabHeaderTextColor;
+		line-height: @tabHeaderLineHeight;
+		font-size: @tabHeaderFontSize;
+		text-align: @tabHeaderTextAlign;
+		font-weight: @tabHeaderFontWeight;
+		&:before {
+			content: @tabHeaderBeforeContent;
+			text-align: @tabHeaderBeforeTextAlign;
+			margin: @tabHeaderBeforeMargin;
+			background: @tabHeaderBeforeBg;
+			color: @tabHeaderBeforeTextColor;
+			font-size: @tabHeaderBeforeFontSize;
+			line-height: @tabHeaderBeforeLineHeight;
+			height: @tabHeaderBeforeHeight;
+			width: @tabHeaderBeforeWidth;
+			top: @tabHeaderBeforeTop;
+			display: inline-block;
+			position: relative;
+		}
+		&:hover {
+			background: @tabHeaderBgHover;
+			color: @tabHeaderTextColorHover;
+			line-height: @tabHeaderLineHeightHover;
+			font-size: @tabHeaderFontSizeHover;
+			&:before {
+				content: @tabHeaderBeforeContentHover;
+				background: @tabHeaderBeforeBgHover;
+				color: @tabHeaderBeforeTextColorHover;
+				line-height: @tabHeaderBeforeLineHeightHover;
+				font-size: @tabHeaderBeforeFontSizeHover;
+			}
+		}
+		&.current {
+			background: @tabHeaderBgCurrent;
+			color: @tabHeaderTextColorCurrent;
+			line-height: @tabHeaderLineHeightCurrent;
+			font-size: @tabHeaderFontSizeCurrent;
+			&:before {
+				content: @tabHeaderBeforeContentCurrent;
+				background: @tabHeaderBeforeBgCurrent;
+				color: @tabHeaderBeforeTextColorCurrent;
+				line-height: @tabHeaderBeforeLineHeightCurrent;
+				font-size: @tabHeaderBeforeFontSizeCurrent;
+			}
+		}
+	}
+	.tab-content {
+		font-weight: @tabContentFontWeight;
+		margin: @tabContentMargin;
+		padding: @tabContentPadding;
+		color: @tabContentTextColor;
+		background: @tabContentBg;
+		font-size: @tabContentFontSize;
+		line-height: @tabContentLineHeight;
+	}
+}
+
+*[data-element="accordion"] {
+	.accordionStyle();
+}

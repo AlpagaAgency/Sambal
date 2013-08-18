@@ -1,0 +1,60 @@
+.utabsStyle(	
+	@margin: @utabsMargin;
+	@tabHeaderTextColorHover: @utabsHeaderTextColorHover;
+	@tabHeaderBackgroundHover: @utabsHeaderBackgroundHover;
+	@tabHeaderFontWeightHover: @utabsHeaderFontWeightHover;
+	@tabHeaderLineHeightHover: @utabsHeaderLineHeightHover;
+	@tabHeaderTextColor: @utabsHeaderTextColor;
+	@tabHeaderBackground: @utabsHeaderBackground;
+	@tabHeaderFontWeight: @utabsHeaderFontWeight;
+	@tabHeaderLineHeight: @utabsHeaderLineHeight;
+	@tabHeaderTextColorCurrent: @utabsHeaderTextColorCurrent;
+	@tabHeaderBackgroundCurrent: @utabsHeaderBackgroundCurrent;
+	@tabHeaderFontWeightCurrent: @utabsHeaderFontWeightCurrent;
+	@tabHeaderLineHeightCurrent: @utabsHeaderLineHeightCurrent;
+	@tabContentBackground: @utabsContentBackground;
+	@tabContentTextColor: @utabsContentTextColor;
+	@tabContentFontWeight: @utabsContentFontWeight;
+	@tabContentLineHeight: @utabsContentLineHeight;
+	@tabContentPadding: @utabsContentPadding;
+) {
+	margin: @margin;
+	> nav {
+		ul {
+			margin-bottom: 0;
+			li {
+				a {
+					&:hover {
+						color: @tabHeaderTextColorHover;
+						background: @tabHeaderBackgroundHover;
+						font-weight: @tabHeaderFontWeightHover;
+						line-height: @tabHeaderLineHeightHover;
+					}
+					color: @tabHeaderTextColor;
+					background: @tabHeaderBackground;
+					font-weight: @tabHeaderFontWeight;
+						line-height: @tabHeaderLineHeight;
+				}
+				&.current {
+					a, a:hover {
+						color: @tabHeaderTextColorCurrent;
+						background: @tabHeaderBackgroundCurrent;
+						font-weight: @tabHeaderFontWeightCurrent;
+						line-height: @tabHeaderLineHeightCurrent;
+					}
+				}
+			}
+		}
+	}
+	section {
+		background: @tabContentBackground;
+		color: @tabContentTextColor;
+		font-weight: @tabContentFontWeight;
+		line-height: @tabContentLineHeight;
+		padding: @tabContentPadding;
+	}
+}
+
+*[data-element=utabs] {
+	.utabsStyle();
+}

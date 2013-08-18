@@ -84,24 +84,44 @@
 				}
 			}
 		}
-	
-		@media only screen and (max-width: @minMediumWidth) {
-			width: 100%;
-			margin-right: 0;
-			border: none;
-			text-indent: 0.5em;
-			> ul {
-				display: block;
-				width: 100%;
-				position: relative;
-				text-indent: 1em;
-			}
+	}
+	@media only screen and (max-width: @minLargeWidth) {
+		.js & {
+			display: none;
 		}
+	}
+}
+
+@media only screen and (max-width: @minLargeWidth) {
+	.js #navigation {
+		display: none;
 	}
 }
 
 // set default Navigation Style
 .defaultNavigationStyle(@arg) when (@arg = true) {
+	.sidr {
+		.sidrObject();
+		> .sidr-inner > nav > ul { display: block; }
+	}
+	
+	#sidr-menu {
+		display: none;
+		text-align: right;
+		 @media only screen and (max-width: @minLargeWidth) {
+			.size(3);
+		 }
+		.responsive-menu-icon {
+			font-size: 1.8em;
+			background: @menuBtnBackground;
+			color: @menuBtnColor;
+			&:hover, &:focus{
+				color: @menuBtnColorHover;
+				background: @menuBtnBackgroundHover;
+			}
+		}
+	}
+	
 	nav > ul {
 		.menuBase();
 	}

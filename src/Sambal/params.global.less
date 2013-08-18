@@ -29,6 +29,7 @@
 	
 	@defaultRadiusBorder: 0px;
 	
+	/* Helpers for media queries */
 	@screen-mobile-portrait:  ~"screen and (max-device-width: 480px) and (orientation: portrait)";
 	@screen-mobile-landscape: ~"screen and (max-device-width: 640px) and (orientation: landscape)";
 	@screen-mobile:           ~"screen and (max-device-width: 640px)";
@@ -206,4 +207,94 @@
 	@dropdownBtnColorHover: #fff;
 	@dropdownBtnBackgroundHover: @primaryColor;
 /* End Button component parameters ----------------------------------- */
+
+/* Sidr plugins parameters ----------------------------------- */
+	@sidrBackground: @primaryColor;
+	@sidrTextColor: #fff;
+	@sidrTextColorHover: #212121;
+	@sidrFontSize: @tagParagraphFontSize;
+	@sidrWidth: 245px;
+	@sidrBorderParent: none;
+	@sidrBorder: none;
+	@sidrLineHeight: @tagParagraphLineHeight;
+/* End Sidr plugins parameters ----------------------------------- */
+
+/* Accordions plugins parameters ----------------------------------- */
+	// tab header Styles
+	@accordionTabHeaderTextAlign: left;
+	@accordionTabHeaderFontWeight: normal;
+	@accordionTabHeaderPadding: 5px 5px;
+	@accordionTabHeaderMargin: 0 5px 0 0;
+	@accordionTabHeaderBackground: transparent;
+	@accordionTabHeaderBackgroundHover: transparent;
+	@accordionTabHeaderBackgroundCurrent: transparent;
+	@accordionTabHeaderTextColor: inherit;
+	@accordionTabHeaderFontSize: inherit;
+	@accordionTabHeaderLineHeight: inherit;
+	@accordionTabHeaderTextColorHover: @primaryColor;
+	@accordionTabHeaderLineHeightHover: inherit;
+	@accordionTabHeaderFontSizeHover: inherit;
+	@accordionTabHeaderTextColorCurrent: @primaryColor;
+	@accordionTabHeaderLineHeightCurrent: inherit;
+	@accordionTabHeaderFontSizeCurrent: inherit;
+	// Tab header Before styles
+	@accordionTabHeaderBeforeTextAlign: center;
+	@accordionTabHeaderBeforeMargin: 0 10px 0 0;
+	@accordionTabHeaderBeforeHeight: 40px;
+	@accordionTabHeaderBeforeWidth: 40px;
+	@accordionTabHeaderBeforeTop: 3px;
+	@accordionTabHeaderBeforeContent: "+";
+	@accordionTabHeaderBeforeContentHover: "+";
+	@accordionTabHeaderBeforeContentCurrent: "-";
+	@accordionTabHeaderBeforeBackground: @secondaryColor;
+	@accordionTabHeaderBeforeBackgroundHover: @secondaryColor;
+	@accordionTabHeaderBeforeBackgroundCurrent: @primaryColor;
+	@accordionTabHeaderBeforeTextColor: @primaryColor;
+	@accordionTabHeaderBeforeFontSize: 2em;
+	@accordionTabHeaderBeforeLineHeight: 35px;
+	@accordionTabHeaderBeforeTextColorHover: @primaryColor;
+	@accordionTabHeaderBeforeLineHeightHover: @accordionTabHeaderBeforeLineHeight;
+	@accordionTabHeaderBeforeFontSizeHover: @accordionTabHeaderBeforeFontSize;
+	@accordionTabHeaderBeforeTextColorCurrent: #fff;
+	@accordionTabHeaderBeforeLineHeightCurrent: 30px;
+	@accordionTabHeaderBeforeFontSizeCurrent: @accordionTabHeaderBeforeFontSize;
+	// Tab content styles
+	@accordionTabContentFontWeight: normal;
+	@accordionTabContentBackground: transparent;
+	@accordionTabContentTextColor: inherit;
+	@accordionTabContentFontSize: inherit;
+	@accordionTabContentLineHeight: inherit;
+	@accordionTabContentPadding: 10px 0 10px 55px;
+	@accordionTabContentMargin: 0 0 5px 0;
+/* End Accordions plugins parameters ----------------------------------- */
+
+/* Utabs plugins parameters ----------------------------------- */
+	@utabsMargin: 0 0 10px 0;
+	@utabsHeaderTextColorHover: inherit;
+	@utabsHeaderBackgroundHover: darken(@utabsHeaderBackground,5%);
+	@utabsHeaderFontWeightHover: normal;
+	@utabsHeaderLineHeightHover: inherit;
+	@utabsHeaderTextColor: @secondaryColor;
+	@utabsHeaderBackground: @primaryColor;
+	@utabsHeaderFontWeight: normal;
+	@utabsHeaderLineHeight: inherit;
+	@utabsHeaderTextColorCurrent: @primaryColor;
+	@utabsHeaderBackgroundCurrent: @secondaryColor;
+	@utabsHeaderFontWeightCurrent: normal;
+	@utabsHeaderLineHeightCurrent: inherit;
+	@utabsContentBackground:@utabsHeaderBackgroundCurrent;
+	@utabsContentTextColor: #fafafa;
+	@utabsContentFontWeight: normal;
+	@utabsContentLineHeight: inherit;
+	@utabsContentPadding: 10px;
+/* End Utabs plugins parameters ----------------------------------- */
+
+/* Tooltip plugins parameters ----------------------------------- */
+	@tooltipBackgroundColor: @primaryColor;
+	@tooltipFontColor: #fff;
+	@tooltipBorderRadius: @defaultRadiusBorder;
+	@tooltipMaxWidth: 200px;
+	@tooltipOpacity: 0.8;
+	@tooltipMsieOpacity: 80;
+/* End Utabs plugins parameters ----------------------------------- */
 
