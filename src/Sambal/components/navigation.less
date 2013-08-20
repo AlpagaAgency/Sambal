@@ -86,7 +86,7 @@
 		}
 	}
 	@media only screen and (max-width: @minLargeWidth) {
-		.js & {
+		.js nav[role="navigation"] & {
 			display: none;
 		}
 	}
@@ -125,6 +125,7 @@
 	nav > ul {
 		.menuBase();
 	}
+	
 }
 // active or not the default style
 .defaultNavigationStyle(@useDefaultNavigationStyle);

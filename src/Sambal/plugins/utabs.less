@@ -6,6 +6,7 @@
 	@tabHeaderLineHeightHover: @utabsHeaderLineHeightHover;
 	@tabHeaderTextColor: @utabsHeaderTextColor;
 	@tabHeaderBackground: @utabsHeaderBackground;
+	@tabHeaderBorder: @utabsHeaderBorder;
 	@tabHeaderFontWeight: @utabsHeaderFontWeight;
 	@tabHeaderLineHeight: @utabsHeaderLineHeight;
 	@tabHeaderTextColorCurrent: @utabsHeaderTextColorCurrent;
@@ -23,6 +24,8 @@
 		ul {
 			margin-bottom: 0;
 			li {
+				.small-size(12);
+				.small-border(@tabHeaderBorder,"top");
 				a {
 					&:hover {
 						color: @tabHeaderTextColorHover;
