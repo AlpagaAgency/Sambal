@@ -1,0 +1,93 @@
+.paginationElement (
+	@baseMargin: @paginationMargin;
+	@baseBorderRadius: @paginationBorderRadius;
+	@basePadding: @paginationPadding;
+	@baseLineHeight: @paginationLineHeight;
+	@baseBackground: @paginationBackground;
+	@baseBorder: @paginationBorder;
+	@baseBackgroundHover: @paginationBackgroundHover;
+	@baseColorActive: @paginationColorCurrent;
+	@baseBackgroundActive: @paginationBackgroundCurrent;
+	@baseColorDisabled: @paginationColorDisabled;
+	@baseFontSize: @paginationFontSize;
+) {
+	font-size: @baseFontSize;
+	.size(12,"center");
+	text-align: center;
+	padding-left: 0;
+	margin: @baseMargin;
+	border-radius: @baseBorderRadius;
+	
+	> li {
+		display: inline;
+		> a,
+		> span {
+			position: relative;
+			display: inline-block;
+			.fixIe7(display,inline-block);
+			padding: @basePadding;
+			line-height: @baseLineHeight;
+			text-decoration: none;
+			background-color: @baseBackground;
+			border: 1px solid @baseBorder;
+			margin-left: -1px;
+		}
+		&:first-child {
+			> a,
+			> span {
+				margin-left: 0;
+				.border-radius(@baseBorderRadius 0 0 @baseBorderRadius);
+			}
+		}
+		&:last-child {
+		> a,
+			> span {
+				.border-radius(0 @baseBorderRadius @baseBorderRadius 0);
+			}
+		}
+	}
+
+	> li > a,
+	> li > span {
+		&:hover,
+		&:focus {
+			background-color: @baseBackgroundHover;
+		}
+	}
+
+	> .current > a,
+	> .current > span {
+		&,
+		&:hover,
+		&:focus {
+			z-index: 2;
+			color: @baseColorActive;
+			background-color: @baseBackgroundActive;
+			border-color: @baseBackgroundActive;
+			cursor: default;
+		}
+	}
+
+	> .disabled {
+		> span,
+		> span:hover,
+		> span:focus,
+		> a,
+		> a:hover,
+		> a:focus {
+			color: @baseColorDisabled;
+			background-color: @baseBackground;
+			border-color: @baseBorder;
+			cursor: not-allowed;
+			}
+	}
+}
+
+.defaultPaginationStyle(@arg) when (@arg = true) {
+	.pagination {
+		.paginationElement();
+	}
+}
+
+// active or not the default style
+.defaultPaginationStyle(@useDefaultPaginationStyle);

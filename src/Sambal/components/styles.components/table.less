@@ -18,16 +18,35 @@
  */
 
 /* Tables ---------------------- */
-.tableStyle (@tableBackground: @tableBackground;@tableBorderColor:@tableBorderColor;@theadBackground: @TableTheadBackground;@theadColor: @TableTheadColor;@tbodyTrEvenBackground: @TableTbodyTrEvenBackground;@tbodyTdColor: @TableTbodyTdColor;@tableFontSize: @tableFontSize;) {
+.tableStyle (
+	@background: @tableBackground;
+	@borderRadius:@tableBorderRadius;
+	@textAlign: @tableTextAlign;
+	@fontSize: @tableFontSize;
+	@border:@tableBorder;
+	@margin:@tableMargin;
+	// tHead
+	@theadVAlign: @tableTheadVAlign;
+	@theadBackground: @tableTheadBackground;
+	@theadPadding: @tableTheadPadding;
+	@theadTextAlign: @tableTheadTextAlign;
+	@theadFontSize: @tableTheadFontSize;
+	@theadColor: @tableTheadColor;
+	@theadFontWeight: @tableTheadFontWeight;
+	// tBody
+	@tbodyBackground: @tableTbodyBackground;
+	@tbodyTrEvenBackground: @tableTbodyTrEvenBackground;
+	@tbodyTdColor: @tableTbodyTdColor;
+	@tbodyPadding: @tableTbodyPadding;
+	@tbodyVAlign: @tableTbodyVAlign;
+	@tbodyFontWeight: @tableTbodyFontWeight;
+	@tbodyTextAlign: @tableTbodyTextAlign;
+) {
 	/* General style ---------------------- */
-	background: @tableBackground; 
-	-webkit-border-radius: 3px; 
-	-moz-border-radius: 3px; 
-	-ms-border-radius: 3px; 
-	-o-border-radius: 3px; 
-	border-radius: 3px; 
-	margin: 0 0 18px; 
-	border: 1px solid @tableBorderColor;
+	.border-radius(@borderRadius);
+	background: @background; 
+	margin: @margin; 
+	border: @border;
 	
 	/* General thead|tfoot|tbody style ---------------------- */
 	thead, tfoot, tbody {
@@ -35,9 +54,8 @@
 		tr {
 			th, td {
 				display: table-cell;
-				font-size: @tableFontSize;
-				line-height: 18px;
-				text-align: left;
+				font-size: @fontSize;
+				text-align: @textAlign;
 			}
 		}
 	}
@@ -45,10 +63,12 @@
 	thead, tfoot {
 		tr {
 			th, td {
-				padding: 8px 10px 9px;
-				font-size: @tableFontSize;
-				font-weight: bold;
+				padding: @theadPadding;
+				font-size: @theadFontSize;
 				color: @theadColor;
+				font-weight: @theadFontWeight;
+				text-align: @theadTextAlign;
+				vertical-align: @theadVAlign;
 				&:first-child {
 					border-left: none;
 				}
@@ -60,16 +80,148 @@
 	}
 	/* Particular style tbody ---------------------- */
 	tbody {
-		background: none;
+		background: @tableTbodyBackground;
 		tr {
 			&.even, &.alt, &:nth-child(even) {
 				background: @tbodyTrEvenBackground;
 			}
 			td {
 				color: @tbodyTdColor;
-				padding: 9px 10px;
-				vertical-align: top;
+				padding: @tbodyPadding;
+				vertical-align: @tbodyVAlign;
+				font-weight: @tbodyFontWeight;
+				text-align: @tbodyTextAlign;
 				border: none;
+			}
+		}
+	}
+}
+
+// Give more style to tr/td elements ;)
+.addTableStyle (
+	@type;
+	@tbodyBackgroundSuccess: @tableTbodyBackgroundSuccess;
+	@tbodyColorSuccess: @tableTbodyColorSuccess;
+	@tbodyBackgroundWarning: @tableTbodyBackgroundWarning;
+	@tbodyColorWarning: @tableTbodyColorWarning;
+	@tbodyBackgroundDanger: @tableTbodyBackgroundDanger;
+	@tbodyColorDanger: @tableTbodyColorDanger;
+) when (@type="stated") {
+	tbody {
+		tr {
+			&.success {
+				background: @tbodyBackgroundSuccess;
+				color: @tbodyColorSuccess;
+				td {
+					background: @tbodyBackgroundSuccess;
+					color: @tbodyColorSuccess;
+				}
+				&:hover {
+					background: darken(@tbodyBackgroundSuccess,5%);
+					color: darken(@tbodyColorSuccess,5%);
+					td {
+						background: darken(@tbodyBackgroundSuccess,5%);
+						color: darken(@tbodyColorSuccess,5%);
+					}
+				}
+			}
+			&.warning {
+				background: @tbodyBackgroundWarning;
+				color: @tbodyColorWarning;
+				td {
+					background: @tbodyBackgroundWarning;
+					color: @tbodyColorWarning;
+				}
+				&:hover {
+					background: darken(@tbodyBackgroundWarning,5%);
+					color: darken(@tbodyColorWarning,5%);
+					td {
+						background: darken(@tbodyBackgroundWarning,5%);
+						color: darken(@tbodyColorWarning,5%);
+					}
+				}
+			}
+			&.danger {
+				background: @tbodyBackgroundDanger;
+				color: @tbodyColorDanger;
+				td {
+					background: @tbodyBackgroundDanger;
+					color: @tbodyColorDanger;
+				}
+				&:hover {
+					background: darken(@tbodyBackgroundDanger,5%);
+					color: darken(@tbodyColorDanger,5%);
+					td {
+						background: darken(@tbodyBackgroundDanger,5%);
+						color: darken(@tbodyColorDanger,5%);
+					}
+				}
+			}
+		}
+	}
+}
+
+// Design for the hover statement
+.addTableStyle (
+	@type;
+	@tbodyBorderHover: @tableTbodyBorderHover;
+	@tbodyBackgroundHover: @tableTbodyBackgroundHover;
+	@tbodyBackgroundColor: @tableTbodyBackgroundColor;
+) when (@type="hovered") {
+	tbody {
+		tr {
+			&:hover {
+				background: @tbodyBackgroundHover;
+				color: @tbodyBackgroundColor;
+				td {
+					background: @tbodyBackgroundHover;
+					color: @tbodyBackgroundColor;
+					border-bottom: @tbodyBorderHover;
+					border-left: @tbodyBorderHover;
+				}
+			}
+		}
+	}
+}
+
+// Play with the width
+.addTableStyle (@type) when (@type="full-width") {
+	width: 100%;
+	max-width: 100%;
+	@media only screen and (max-width: @minLargeWidth) {
+		width: 98%;
+		max-width: 98%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Add border to table
+.addTableStyle (
+	@type;
+	@theadBorder: @tableTheadBorder;
+	@tbodyBorder: @tableTbodyBorder;
+	@tbodyBorderHover: @tableTbodyBorderHover;
+) when (@type="bordered") {
+	thead {
+		tr {
+			th, td {
+				border-bottom: @theadBorder;
+				border-left: @theadBorder;
+				&:first-child {
+					border-left: none;
+				}
+			}
+		}
+	}
+	tbody {
+		tr {
+			td {
+				border-bottom: @tbodyBorder;
+				border-left: @tbodyBorder;
+				&:first-child {
+					border-left: none;
+				}
 			}
 		}
 	}
@@ -79,6 +231,18 @@
 .defaultTableStyle(@arg) when (@arg = true) {
 	table {
 		.tableStyle;
+		&.bordered {
+			.addTableStyle("bordered");
+		}
+		&.hovered {
+			.addTableStyle("hovered");
+		}
+		&.full-width {
+			.addTableStyle("full-width");
+		}
+		&.stated {
+			.addTableStyle("stated");
+		}
 	}
 }
 // active or not the default style

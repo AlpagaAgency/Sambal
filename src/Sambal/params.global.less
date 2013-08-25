@@ -23,8 +23,8 @@
 	@minLargeWidth: 768px;
 	@minMediumWidth: 500px;
 	
-	@primaryColor: #46bfbd;
-	@secondaryColor: #212121;
+	@primaryColor: #F15D58;
+	@secondaryColor: #414042;
 	@activeColor: lighten(@primaryColor,10%);
 	
 	@defaultRadiusBorder: 0px;
@@ -54,6 +54,7 @@
 	@useDefaultBreadcrumStyle: true;
 	@useDefaultNavigationStyle: true;
 	@useDefaultButtonStyle: true;
+	@useDefaultPaginationStyle: true;
 	@useDefaultClassName: true;
 
 /* Messaging parameters --------------------------------------------- */
@@ -102,24 +103,63 @@
 	@tagLinkColor: @primaryColor;
 	@tagLinkDecoration: none;
 	@tagLinkColorHover: @secondaryColor;
-
+	
+	@tagFontSize: 1em;
+	@tagFontFamily: "oswaldlight", sans-serif;
+	@tagFontWeight: normal;
+	@tagColor: #212121;
 	@tagParagraphLineHeight: 1.6;
 	@tagParagraphFontSize: 1em;
 	@tagParagraphMarginBottom: 1.25em;
 
-	@tagHeaderFontFamily: "Helvetica", Helvetica, Arial, sans-serif;
-	@tagHeaderFontWeight: bold;
-	@tagHeaderColor: #222;
+	@tagStrongFontFamily: @tagFontFamily;
+	@tagStrongFontWeight: bold;
+	
+	@tagHeaderFontFamily: "oswaldlight", sans-serif;
+	@tagHeaderFontWeight: normal;
+	@tagHeaderColor: #444;
 /* End Tag Style component parameters -------------------------------- */
 
 /* Table style component parameters ------------------------------------ */
 	@tableBackground: #fff;
-	@tableBorderColor:#dddddd;
-	@TableTheadBackground: #f5f5f5;
-	@TableTheadColor: #222;
-	@TableTbodyTrEvenBackground: #f9f9f9;
-	@TableTbodyTdColor:#333;
+	@tableTextAlign: left;
 	@tableFontSize:14px;
+	@tableMargin: 0 0 18px 0;
+	@tableBorder: 1px solid #dddddd;
+	@tableBorderRadius: @defaultRadiusBorder;
+	//tHead
+	@tableTheadBackground: #f5f5f5;
+	@tableTheadPadding: 8px 10px 9px;
+	@tableTheadColor: #222;
+	@tableTheadFontWeight: bold;
+	@tableTheadTextAlign: @tableTextAlign;
+	@tableTheadFontSize: @tableFontSize;
+	@tableTheadVAlign: top;
+	@tableTheadBorder: 1px solid #cacaca;
+	// tBody
+	@tableTbodyBackground: none;
+	@tableTbodyPadding: 9px 10px;
+	@tableTbodyTrEvenBackground: #f9f9f9;
+	@tableTbodyFontWeight: normal;
+	@tableTbodyTextAlign: @tableTextAlign;
+	@tableTbodyTdColor: #333;
+	@tableTbodyVAlign: top;
+	@tableTbodyBorder: 1px solid #cacaca;
+		// Hover
+		@tableTbodyBackgroundColor: @secondaryColor;
+		@tableTbodyBackgroundHover: @primaryColor;
+		@tableTbodyBorderHover: 1px solid #cacaca;
+		
+	// Table Style Additionnal
+		// Success
+		@tableTbodyBackgroundSuccess:@messagingBackgroundSuccess;
+		@tableTbodyColorSuccess:@messagingColorSuccess;
+		// Warning
+		@tableTbodyBackgroundWarning:@messagingBackgroundWarning;
+		@tableTbodyColorWarning:@messagingColorWarning;
+		// Danger
+		@tableTbodyBackgroundDanger: @messagingBackgroundError;
+		@tableTbodyColorDanger:@messagingColorError;
 /* End Table Style component parameters -------------------------------- */
 
 /* Breadcrumbs component parameters ----------------------------------- */
@@ -152,13 +192,13 @@
 /* Navigation component parameters ----------------------------------- */
 	@menuBackground: transparent;
 	@menuBtnBackground: transparent;
-	@menuBtnColor: #84858a;
+	@menuBtnColor: #fafafa;
 	@menuBtnPadding: 0.2em 0.6em;
 	// we use this for hover
 	@menuBtnBackgroundHover: transparent;
-	@menuBtnColorHover: #222;
+	@menuBtnColorHover: @primaryColor;
 	// we use this for current
-	@menuBtnColorCurrent: @activeColor;
+	@menuBtnColorCurrent: @primaryColor;
 	@menuBtnBackgroundCurrent: @menuBtnBackground;
 	// we use this for the second level of the menu main
 	@menu2ndBackground: transparent;
@@ -207,6 +247,20 @@
 	@dropdownBtnColorHover: #fff;
 	@dropdownBtnBackgroundHover: @primaryColor;
 /* End Button component parameters ----------------------------------- */
+
+/* Pagination component parameters ----------------------------------- */
+	@paginationLineHeight: inherit;
+	@paginationBorderRadius: @defaultRadiusBorder;
+	@paginationMargin: 15px auto;
+	@paginationPadding: 5px 15px;
+	@paginationBackground: #fafafa;
+	@paginationBorder: #afafaf;
+	@paginationBackgroundHover: darken(@primaryColor,6%);
+	@paginationColorCurrent: #fff;
+	@paginationBackgroundCurrent: @primaryColor;
+	@paginationColorDisabled: #cacaca;
+	@paginationFontSize: 1em;
+/* End Pagination component parameters ----------------------------------- */
 
 /* Sidr plugins parameters ----------------------------------- */
 	@sidrBackground: @primaryColor;
@@ -270,7 +324,7 @@
 
 /* Utabs plugins parameters ----------------------------------- */
 	@utabsMargin: 0 0 10px 0;
-	@utabsHeaderTextColorHover: inherit;
+	@utabsHeaderTextColorHover: #fff;
 	@utabsHeaderBackgroundHover: darken(@utabsHeaderBackground,5%);
 	@utabsHeaderFontWeightHover: normal;
 	@utabsHeaderLineHeightHover: inherit;
