@@ -261,42 +261,51 @@
 // Display (hide|show)
 /* *********************************************************** */
 
-.hide() {
+.hideElement() {
 	display: none;
 	.opacity(0,0);
 }
 
-	.medium-hide() {
+	.hide(@type:"regular") when (@type="regular") {
+		.hideElement();
+	}
+
+	.hide(@type) when (@type="medium") {
 		@media only screen and (max-width: @minLargeWidth) {
-			.hide();
+			.hideElement();
 		}
 	}
 
-	.small-hide() {
+	.hide(@type) when (@type="small") {
 		@media only screen and (max-width: @minMediumWidth) {
-			.hide();
+			.hideElement();
 		}
 	}
-	
-.show(@type:"block") when (@type = "block") {
+
+
+.showElement(@type:"block") when (@type = "block") {
 	display: block;
 	.opacity(1,100);
 } 
 
-.show(@type) when (@type = "inline-block") {
+.showElement(@type) when (@type="inline-block") {
 	display: inline-block;
 	.fixIe7(display,inline-block);
 	.opacity(1,100);
 }
 
-	.medium-show(@type:"block") {
+	.show(@size: "regular",@type:"block") when (@size="regular") {
+		.showElement(@type);
+	} 
+
+	.show(@size: "medium",@type:"block") when (@size="medium") {
 		@media only screen and (max-width: @minLargeWidth) {
-			.show(@type);
+			.showElement(@type);
 		}
 	}
 
-	.small-show(@type:"block") {
+	.show(@size: "small",@type:"block") when (@size="small") {
 		@media only screen and (max-width: @minMediumWidth) {
-			.show(@type);
+			.showElement(@type);
 		}
 	}
