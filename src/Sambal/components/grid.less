@@ -85,6 +85,9 @@
 	.small-offset(@small);
 }
 
+.vOffset(@value;@type:"top") when (@type = "top") {
+	margin-top: @value;
+}
 .vOffset(@value;@type:"top") when (@type = "top") and (isnumber(@value)) and (@value < @nbColumns) {
 	margin-top: @min*value;
 }
@@ -92,7 +95,11 @@
 	margin-top: @value
 }
 
-.vOffset(@value;) when (@type = "bottom") and (isnumber(@value)) and (@value < @nbColumns) {
+.vOffset(@value;@type:"top") when (@type = "bottom") {
+	margin-bottom: @min*value;
+}
+
+.vOffset(@value;@type:"top") when (@type = "bottom") and (isnumber(@value)) and (@value < @nbColumns) {
 	margin-bottom: @min*value;
 }
 
