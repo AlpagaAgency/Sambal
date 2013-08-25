@@ -51,7 +51,7 @@ var jlsConfig = {
 	,rslide: [
 		"jQuery"
 		,vndPath + "jquery.plugins/responsiveslides/responsiveslides.css"
-		,vndPath + "jquery.plugins/responsiveslides/themes/themes.css"
+		,vndPath + "jquery.plugins/responsiveslidesthemesthemes.css"
 		,vndPath + "jquery.plugins/responsiveslides/responsiveslides.min.js"
 	]
 	,"rev.slider": [
@@ -86,8 +86,8 @@ var jlsConfig = {
 	,galleria: [
 		"jQuery"
 		,vndPath + "jquery.plugins/galleria/galleria-1.2.9.min.js"
-		,vndPath + "jquery.plugins/galleria/themes/classic/galleria.classic.min.js"
-		,vndPath + "jquery.plugins/galleria/themes/classic/galleria.classic.css"
+		,vndPath + "jquery.plugins/galleriathemes/classic/galleria.classic.min.js"
+		,vndPath + "jquery.plugins/galleriathemes/classic/galleria.classic.css"
 	]
 	,"jquery.uploadfile": [
 		"jQuery"
@@ -114,11 +114,11 @@ var jlsConfig = {
 	/* Icons paths
 	/* ************************************************************/
 	
-	,ecoico: "/themes/"+themeName+"/icons/ecoico/stylesheet.css"
+	,ecoico: "themes/"+themeName+"/icons/ecoico/stylesheet.css"
 	,foundIcon: [
-		"/themes/"+themeName+"/icons/foundation_icons_general/stylesheets/general_foundicons.css"
-		,"/themes/"+themeName+"/icons/foundation_icons_general/stylesheets/general_foundicons_ie7.css"
+		"themes/"+themeName+"/icons/foundation_icons_general/stylesheets/general_foundicons.css"
+		,"themes/"+themeName+"/icons/foundation_icons_general/stylesheets/general_foundicons_ie7.css"
 	]
-	,icomoon: "/themes/"+themeName+"/icons/icomoon/style.css"
+	,icomoon: "themes/"+themeName+"/icons/icomoon/style.css"
 	
 };
