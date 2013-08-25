@@ -1,5 +1,5 @@
 var themeName = themeName || "sambal";
-var vndPath = "/themes/"+ themeName + "/components/";
+var vndPath = "themes/"+ themeName + "/components/";
 var jlsConfig = {
 
 	/* *************************************************************
