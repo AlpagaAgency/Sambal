@@ -1,5 +1,0 @@
-.cAccordion>*{display:none}
-.cAccordion .tab-header{display:block;padding:5px 5px;margin-top:5px;cursor:pointer}.cAccordion .tab-header:before{background:#ebebeb;content:"+";color:#444;text-align:center;font-size:2em;height:40px;line-height:35px;width:40px;margin-right:10px;display:inline-block;position:relative;top:3px}
-.cAccordion .tab-header:hover{color:#46bfbd}
-.cAccordion .tab-header.current{color:#46bfbd}.cAccordion .tab-header.current:before{background:#46bfbd;content:"-";color:#fff;line-height:30px}
-.cAccordion .tab-content{margin-bottom:5px;padding:10px 0 10px 55px}
