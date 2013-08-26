@@ -112,6 +112,13 @@
 	}
 }
 
-*[data-element="accordion"] {
-	.accordionStyle();
+
+
+.defaultAccordionStyle(@arg) when (@arg = true) {	
+	*[data-element="accordion"] {
+		.accordionStyle();
+	}
 }
+
+// active or not the default style
+.defaultAccordionStyle(@useDefaultAccordionStyle);

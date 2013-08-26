@@ -47,6 +47,11 @@
 	@useNormalize: false;
 	@useReset: true;
 	@useResizeTransition: true;
+/* all about default plugins --------------------------- */
+	@useDefaultUtabsStyle: true;
+	@useDefaultAccordionStyle: true;
+	@useDefaultTooltipStyle: true;
+
 /* all about default style --------------------------- */
 	@useDefaultTableStyle: true;
 	@useDefaultFormStyle: true;
@@ -55,6 +60,7 @@
 	@useDefaultNavigationStyle: true;
 	@useDefaultButtonStyle: true;
 	@useDefaultPaginationStyle: true;
+	@useDefaultMessagingStyle: true;
 	@useDefaultClassName: true;
 
 /* Messaging parameters --------------------------------------------- */
@@ -280,17 +286,19 @@
 	@accordionTabHeaderPadding: 5px 5px;
 	@accordionTabHeaderMargin: 0 5px 0 0;
 	@accordionTabHeaderBackground: transparent;
-	@accordionTabHeaderBackgroundHover: transparent;
-	@accordionTabHeaderBackgroundCurrent: transparent;
 	@accordionTabHeaderTextColor: inherit;
 	@accordionTabHeaderFontSize: inherit;
 	@accordionTabHeaderLineHeight: inherit;
-	@accordionTabHeaderTextColorHover: @primaryColor;
-	@accordionTabHeaderLineHeightHover: inherit;
-	@accordionTabHeaderFontSizeHover: inherit;
-	@accordionTabHeaderTextColorCurrent: @primaryColor;
-	@accordionTabHeaderLineHeightCurrent: inherit;
-	@accordionTabHeaderFontSizeCurrent: inherit;
+		// Hover
+		@accordionTabHeaderBackgroundHover: transparent;
+		@accordionTabHeaderTextColorHover: @primaryColor;
+		@accordionTabHeaderLineHeightHover: inherit;
+		@accordionTabHeaderFontSizeHover: inherit;
+		// Current
+		@accordionTabHeaderBackgroundCurrent: transparent;
+		@accordionTabHeaderTextColorCurrent: @primaryColor;
+		@accordionTabHeaderLineHeightCurrent: inherit;
+		@accordionTabHeaderFontSizeCurrent: inherit;
 	// Tab header Before styles
 	@accordionTabHeaderBeforeTextAlign: center;
 	@accordionTabHeaderBeforeMargin: 0 10px 0 0;
@@ -298,20 +306,22 @@
 	@accordionTabHeaderBeforeWidth: 40px;
 	@accordionTabHeaderBeforeTop: 3px;
 	@accordionTabHeaderBeforeContent: "+";
-	@accordionTabHeaderBeforeContentHover: "+";
-	@accordionTabHeaderBeforeContentCurrent: "-";
-	@accordionTabHeaderBeforeBackground: @secondaryColor;
-	@accordionTabHeaderBeforeBackgroundHover: @secondaryColor;
-	@accordionTabHeaderBeforeBackgroundCurrent: @primaryColor;
 	@accordionTabHeaderBeforeTextColor: @primaryColor;
+	@accordionTabHeaderBeforeBackground: @secondaryColor;
 	@accordionTabHeaderBeforeFontSize: 2em;
 	@accordionTabHeaderBeforeLineHeight: 35px;
-	@accordionTabHeaderBeforeTextColorHover: @primaryColor;
-	@accordionTabHeaderBeforeLineHeightHover: @accordionTabHeaderBeforeLineHeight;
-	@accordionTabHeaderBeforeFontSizeHover: @accordionTabHeaderBeforeFontSize;
-	@accordionTabHeaderBeforeTextColorCurrent: #fff;
-	@accordionTabHeaderBeforeLineHeightCurrent: 30px;
-	@accordionTabHeaderBeforeFontSizeCurrent: @accordionTabHeaderBeforeFontSize;
+		// Hover
+		@accordionTabHeaderBeforeContentHover: "+";
+		@accordionTabHeaderBeforeBackgroundHover: @secondaryColor;
+		@accordionTabHeaderBeforeTextColorHover: @primaryColor;
+		@accordionTabHeaderBeforeLineHeightHover: @accordionTabHeaderBeforeLineHeight;
+		@accordionTabHeaderBeforeFontSizeHover: @accordionTabHeaderBeforeFontSize;
+		// Current
+		@accordionTabHeaderBeforeContentCurrent: "-";
+		@accordionTabHeaderBeforeBackgroundCurrent: @primaryColor;
+		@accordionTabHeaderBeforeTextColorCurrent: #fff;
+		@accordionTabHeaderBeforeLineHeightCurrent: 30px;
+		@accordionTabHeaderBeforeFontSizeCurrent: @accordionTabHeaderBeforeFontSize;
 	// Tab content styles
 	@accordionTabContentFontWeight: normal;
 	@accordionTabContentBackground: transparent;
@@ -323,25 +333,30 @@
 /* End Accordions plugins parameters ----------------------------------- */
 
 /* Utabs plugins parameters ----------------------------------- */
+	// General
 	@utabsMargin: 0 0 10px 0;
-	@utabsHeaderTextColorHover: #fff;
-	@utabsHeaderBackgroundHover: darken(@utabsHeaderBackground,5%);
-	@utabsHeaderFontWeightHover: normal;
-	@utabsHeaderLineHeightHover: inherit;
+	// Head
 	@utabsHeaderTextColor: @secondaryColor;
 	@utabsHeaderBackground: @primaryColor;
 	@utabsHeaderFontWeight: normal;
 	@utabsHeaderLineHeight: inherit;
-	@utabsHeaderTextColorCurrent: @primaryColor;
-	@utabsHeaderBackgroundCurrent: @secondaryColor;
-	@utabsHeaderFontWeightCurrent: normal;
-	@utabsHeaderLineHeightCurrent: inherit;
+	@utabsHeaderBorder: 1px solid @secondaryColor;
+		// Hover
+		@utabsHeaderTextColorHover: #fff;
+		@utabsHeaderBackgroundHover: darken(@utabsHeaderBackground,5%);
+		@utabsHeaderFontWeightHover: normal;
+		@utabsHeaderLineHeightHover: inherit;
+		// Current
+		@utabsHeaderTextColorCurrent: @primaryColor;
+		@utabsHeaderBackgroundCurrent: @secondaryColor;
+		@utabsHeaderFontWeightCurrent: normal;
+		@utabsHeaderLineHeightCurrent: inherit;
+	// Content
 	@utabsContentBackground:@utabsHeaderBackgroundCurrent;
 	@utabsContentTextColor: #fafafa;
 	@utabsContentFontWeight: normal;
 	@utabsContentLineHeight: inherit;
 	@utabsContentPadding: 10px;
-	@utabsHeaderBorder: 1px solid @secondaryColor;
 /* End Utabs plugins parameters ----------------------------------- */
 
 /* Tooltip plugins parameters ----------------------------------- */

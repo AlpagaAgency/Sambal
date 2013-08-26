@@ -102,18 +102,23 @@
 	color: @messagingColorInformation;
 }
 
-// map "object" Message to msg-flash class
-.msg-flash {
-	&.success {.message("success");}
-	&.error {.message("error");}
-	&.information {.message("information");}
-	&.warning {.message("warning");}
+.defaultMessagingStyle(@arg) when (@arg = true) {		
+	// map "object" Message to msg-flash class
+	.msg-flash {
+		&.success {.message("success");}
+		&.error {.message("error");}
+		&.information {.message("information");}
+		&.warning {.message("warning");}
+	}
+	// map "object" Alert to msg-alert class
+	.msg-alert {
+		&.information {.alert("information");}
+		&.error {.alert("error");}
+		&.warning {.alert("warning");}
+		&.success {.alert("success");}
+	}
 }
-// map "object" Alert to msg-alert class
-.msg-alert {
-	&.information {.alert("information");}
-	&.error {.alert("error");}
-	&.warning {.alert("warning");}
-	&.success {.alert("success");}
-}
+
+// active or not the default style
+.defaultMessagingStyle(@useDefaultMessagingStyle);
 

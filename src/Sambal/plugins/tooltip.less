@@ -1,4 +1,44 @@
-.tooltip {
+.addTooltipStyle(@backgroundColor:@tooltipBackgroundColor;@fontColor:@tooltipFontColor;@borderRadius:@tooltipBorderRadius;@maxWidth:@tooltipMaxWidth;@opacity: @tooltipOpacity;@msieOpacity:@tooltipMsieOpacity;) {
+	.tooltip-inner {
+		color: @fontColor;
+		background-color: @backgroundColor;
+		.border-radius(@borderRadius);
+		max-width: @maxWidth;
+	}
+	&.in {
+		opacity: @opacity;
+		filter: alpha(opacity=@msieOpacity);
+	}
+	&.top {
+		.tooltip-arrow {
+			border-top-color: @backgroundColor;
+		}
+	}
+	&.right {
+		.tooltip-arrow {
+			border-right-color: @backgroundColor;
+		}
+	}
+	&.bottom {
+		.tooltip-arrow {
+			border-bottom-color: @backgroundColor;
+		}
+	}
+	&.left {
+		.tooltip-arrow {
+			border-left-color: @backgroundColor;
+		}
+	}
+}
+
+.tooltipOpacity(@opacity;@msieOpacity) {
+	&.in {
+		opacity: @opacity;
+		filter: alpha(opacity=@msieOpacity);
+	}
+}
+
+.tooltipElement () {
 	position: absolute;
 	z-index: 1030;
 	display: block;
@@ -63,58 +103,25 @@
 			border-width: 5px 0 5px 5px;
 		}
 	}
-}
-
-.tooltipStyler(@backgroundColor:@tooltipBackgroundColor;@fontColor:@tooltipFontColor;@borderRadius:@tooltipBorderRadius;@maxWidth:@tooltipMaxWidth;@opacity: @tooltipOpacity;@msieOpacity:@tooltipMsieOpacity;) {
-	.tooltip-inner {
-		color: @fontColor;
-		background-color: @backgroundColor;
-		.border-radius(@borderRadius);
-		max-width: @maxWidth;
-	}
-	&.in {
-		opacity: @opacity;
-		filter: alpha(opacity=@msieOpacity);
-	}
-	&.top {
-		.tooltip-arrow {
-			border-top-color: @backgroundColor;
-		}
-	}
-	&.right {
-		.tooltip-arrow {
-			border-right-color: @backgroundColor;
-		}
-	}
-	&.bottom {
-		.tooltip-arrow {
-			border-bottom-color: @backgroundColor;
-		}
-	}
-	&.left {
-		.tooltip-arrow {
-			border-left-color: @backgroundColor;
-		}
-	}
-}
-
-.tooltipOpacity(@opacity;@msieOpacity) {
-	&.in {
-		opacity: @opacity;
-		filter: alpha(opacity=@msieOpacity);
-	}
-}
-
-.tooltip {
-	.tooltipStyler;
-	.magenta &, &[data-tooltip-style=magenta] { .tooltipStyler(#f33e6f;#222); }
-	.white &, &[data-tooltip-style=white] { .tooltipStyler(#fff;#ffab32); }
-	.orange &, &[data-tooltip-style=orange] { .tooltipStyler(#ffab32;#fff); }
-	.blue &, &[data-tooltip-style=blue] { .tooltipStyler(#46bfbd;#222); }
-	.light &, &[data-tooltip-style=light] { .tooltipStyler(#fff;#222); }
+	// add style
+	.addTooltipStyle;
+	.magenta &, &[data-tooltip-style=magenta] { .addTooltipStyle(#f33e6f;#222); }
+	.white &, &[data-tooltip-style=white] { .addTooltipStyle(#fff;#ffab32); }
+	.orange &, &[data-tooltip-style=orange] { .addTooltipStyle(#ffab32;#fff); }
+	.blue &, &[data-tooltip-style=blue] { .addTooltipStyle(#46bfbd;#222); }
+	.light &, &[data-tooltip-style=light] { .addTooltipStyle(#fff;#222); }
 	
 	.tooltip-opacity-full &, &[data-opacity=full] {
 		.tooltipOpacity(1,100);
 	}
 }
+
+.defaultTooltipStyle(@arg) when (@arg = true) {		
+	.tooltip {
+		.tooltipElement();
+	}
+}
+
+// active or not the default style
+.defaultTooltipStyle(@useDefaultTooltipStyle);
 

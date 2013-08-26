@@ -1,4 +1,4 @@
-.utabsStyle(	
+.utabsStyle (	
 	@margin: @utabsMargin;
 	@tabHeaderTextColorHover: @utabsHeaderTextColorHover;
 	@tabHeaderBackgroundHover: @utabsHeaderBackgroundHover;
@@ -58,6 +58,12 @@
 	}
 }
 
-*[data-element=utabs] {
-	.utabsStyle();
+
+.defaultUtabsStyle(@arg) when (@arg = true) {		
+	*[data-element=utabs] {
+		.utabsStyle();
+	}
 }
+
+// active or not the default style
+.defaultUtabsStyle(@useDefaultUtabsStyle);
